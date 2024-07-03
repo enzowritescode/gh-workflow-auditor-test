@@ -1,0 +1,23 @@
+name: Audit GitHub Workflows
+on:
+  schedule:
+    - cron: 0 0 * * 0 # 12:00am on Sunday
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          repository: TinderSec/gh-workflow-auditor
+          ref: 2d250eccdf2edcd04a3e84b951be44aa20627e7f
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d #v5.1.0
+        with:
+          python-version: '3.12.4'
+      - run: |
+        cd gh-workflow-auditor
+        python main.py --type user enzowritescode
+
