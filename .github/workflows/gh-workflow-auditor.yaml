@@ -1,7 +1,7 @@
 name: Audit GitHub Workflows
 on:
   schedule:
-    - cron: 0,5,10,15,20,25,30,35,40,45,50,55 * * * * # every 5 min -- 0 0 * * 0 # 12:00am on Sunday
+    - cron: */5 * * * * # every 5 min -- 0 0 * * 0 # 12:00am on Sunday
 
 jobs:
   build:
