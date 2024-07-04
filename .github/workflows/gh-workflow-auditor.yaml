@@ -22,8 +22,6 @@ jobs:
           python-version: '3.12.4'
       - name: gh-workflow-auditor
         run: |
-          ls
-          cd gh-workflow-auditor
           export PAT=${{ env.GH_PERSONAL_ACCESS_TOKEN }}
           python main.py --type user enzowritescode
 
