@@ -24,6 +24,6 @@ jobs:
       - name: gh-workflow-auditor
         run: |
           pip3 install -r requirements.txt
-          export PAT=${{ env.GH_PERSONAL_ACCESS_TOKEN }}
+          export PAT=${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           python3 main.py --type user enzowritescode
 
