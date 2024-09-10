@@ -26,5 +26,5 @@ jobs:
       - name: gh-workflow-auditor
         env:
           PAT: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-        run: python3 main.py --type user enzowritescode --log-level warning
+        run: python3 main.py --type user enzowritescode --log-level debug
 
