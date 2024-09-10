@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           repository: TinderSec/gh-workflow-auditor
-          ref: 2d250eccdf2edcd04a3e84b951be44aa20627e7f
+          ref: 72dba22745255152c6ff73ad454792ef8700fa36
       - name: setup-python
         uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d #v5.1.0
         with:
@@ -25,5 +25,5 @@ jobs:
         run: |
           pip3 install -r requirements.txt
           export PAT=${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          python3 main.py --type user enzowritescode
+          python3 main.py --type user enzowritescode --log-level warning
 
