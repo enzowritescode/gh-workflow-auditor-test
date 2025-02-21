@@ -24,7 +24,7 @@ jobs:
           python -m pipx ensurepath
       - name: Install ghwfauditor
         run: |
-          pipx install 'git+https://github.com/Xenorf/gh-workflow-auditor.git'
+          pipx install 'git+https://github.com/Xenorf/gh-workflow-auditor.git@ef8404fb9bafea418b5768b6475416f3128fd9a7'
       - name: ghwfauditor
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
