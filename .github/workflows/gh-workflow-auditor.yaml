@@ -4,6 +4,9 @@ on: push
   # schedule:
   #   - cron: '*/15 * * * *' # every 15 min -- 0 0 * * 0 # 12:00am on Sunday
 
+env:
+  LOG_LEVEL: info
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +28,7 @@ jobs:
       - name: gh-workflow-auditor
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          LOG_LEVEL: ${{ env.LOG_LEVEL }}
         run: |
-          ghwfauditor --type user enzowritescode --log-level debug
+          ghwfauditor --type user enzowritescode --log-level $LOG_LEVEL
 
