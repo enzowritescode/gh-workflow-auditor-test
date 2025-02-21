@@ -4,9 +4,6 @@ on: push
   # schedule:
   #   - cron: '*/15 * * * *' # every 15 min -- 0 0 * * 0 # 12:00am on Sunday
 
-env:
-  LOG_LEVEL: info
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,6 +24,7 @@ jobs:
           pipx install 'git+https://github.com/Xenorf/gh-workflow-auditor.git@ef8404fb9bafea418b5768b6475416f3128fd9a7'
       - name: ghwfauditor
         env:
+          LOG_LEVEL: ${{ vars.LOG_LEVEL || 'info' }}
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
         run: |
           ghwfauditor --type user enzowritescode --log-level $LOG_LEVEL
