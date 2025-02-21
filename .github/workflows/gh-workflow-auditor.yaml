@@ -25,10 +25,9 @@ jobs:
       - name: Install ghwfauditor
         run: |
           pipx install 'git+https://github.com/Xenorf/gh-workflow-auditor.git'
-      - name: gh-workflow-auditor
+      - name: ghwfauditor
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          LOG_LEVEL: ${{ env.LOG_LEVEL }}
         run: |
           ghwfauditor --type user enzowritescode --log-level $LOG_LEVEL
 
