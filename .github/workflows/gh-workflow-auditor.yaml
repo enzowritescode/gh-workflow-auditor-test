@@ -30,10 +30,9 @@ jobs:
           ghwfauditor --type user enzowritescode --log-level $LOG_LEVEL
 
           # Check if the log file has any content
-          if [ -s scan.log ]; then
+          if [[ "$LOG_LEVEL" =~ ^(warning|error|critical)$ ]] && [ -s "scan.log" ]; then
             echo "Issues were found! Failing the workflow."
             exit 1
           else
             echo "No findings. Success"
           fi
-
